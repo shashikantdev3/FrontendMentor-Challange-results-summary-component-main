@@ -1,0 +1,331 @@
+/* CSS RESET */
+
+/*
+  1. Use a more-intuitive box-sizing model.
+*/
+*, *::before, *::after {
+    box-sizing: border-box;
+  }
+  /*
+    2. Remove default margin
+  */
+  * {
+    margin: 0;
+  }
+  /*
+    3. Allow percentage-based heights in the application
+  */
+  html, body {
+    height: 100%;
+  }
+  /*
+    Typographic tweaks!
+    4. Add accessible line-height
+    5. Improve text rendering
+  */
+  body {
+    line-height: 1.5;
+    -webkit-font-smoothing: antialiased;
+  }
+  /*
+    6. Improve media defaults
+  */
+  img, picture, video, canvas, svg {
+    display: block;
+    max-width: 100%;
+  }
+  /*
+    7. Remove built-in form typography styles
+  */
+  input, button, textarea, select {
+    font: inherit;
+  }
+  /*
+    8. Avoid text overflows
+  */
+  p, h1, h2, h3, h4, h5, h6 {
+    overflow-wrap: break-word;
+  }
+
+/* CUSTOM Properties */
+:root{
+    --clr-light-red: hsl(0, 100%, 67%);
+    --clr-more-light-red: hsl(0, 100%, 95%);
+    --clr-oragey-yellow: hsl(39, 100%, 56%);
+    --clr-light-oragey-yellow: hsl(39, 100%, 92%);
+    --clr-green-teal: hsl(166, 100%, 37%);
+    --clr-light-green-teal: hsl(166, 100%, 90%);
+    --clr-cobalt-blue: hsl(234, 47%, 40%);
+    --clr-light-cobalt-blue: hsl(234, 47%, 78%);
+
+    /* gradient for background */
+    --clr-light-stale-blue: hsl(252, 100%, 67%);
+    --clr-light-royal-blue: hsl(241, 81%, 54%);
+
+    /* gradiants for circle */
+    --clr-violet-blue: rgb(50, 7, 167);
+    --clr-persian-blue: hsla(241, 72%, 46%, 0);
+
+    /* Neutral */
+    --clr-neutral-white: hsl(0, 0%, 100%);
+    --clr-neutral-pale-blue: hsl(221, 100%, 96%);
+    --clr-neutral-light-lavender: hsl(241, 100%, 89%);
+    --clr-neutral-dark-grey-blue: hsl(224, 30%, 27%);
+    --clr-neutral-light-grey-blue: hsl(224, 27%, 56%);
+
+    /* font */
+    --fs: 1.125rem;
+
+    /* Font family */
+    --ff-hanken: 'Hanken Grotesk', sans-serif;
+}
+
+/* general styling */
+
+body{
+    font-family: var(--ff-hanken);
+    font-size: var(--fs);
+    background-color: var(--clr-neutral-white);
+    display: grid;
+    place-content: center;
+    margin: 1rem;
+}
+
+@media (min-width: 600px){
+  main{
+    display: grid;
+    grid-template-columns: 1fr 1fr
+  }
+  .result{
+    min-width: 350px;
+    border-radius: 1rem;
+  }
+  .summary{
+    min-width: 350px;
+  }
+}
+
+.result{
+    background: linear-gradient(var(--clr-light-stale-blue),var(--clr-light-royal-blue));
+    display: grid;
+    justify-content: center;
+    justify-items: center;
+    align-items: center;
+
+    border-bottom-left-radius: 1rem;
+    border-bottom-right-radius: 1rem;
+    overflow: hidden;
+    /* height: 45vh; */
+}
+
+.your-result{
+  color: var(--clr-neutral-light-lavender);
+  font-weight: 500;
+  padding: 1.5rem;
+}
+
+
+
+.total__mark{
+  background: linear-gradient(var(--clr-violet-blue),var(--clr-persian-blue));
+ 
+  /* To make div circle and placing all the content in center*/
+  width: 140px;
+  height: 140px;
+  border-radius: 140px;
+  text-align: center;
+  overflow: hidden;
+  vertical-align:middle;
+}
+
+.marks-obtained{
+  font-size: 3.75rem;
+  font-weight: 600;
+  color: var(--clr-neutral-white);
+  padding-top: 0.9125rem;
+}
+
+.out-of{
+  color: var(--clr-neutral-light-lavender);
+  font-weight: 400;
+  font-size: 0.9125rem;
+  margin-bottom: 20px;
+}
+
+.feedback{
+  color: var(--clr-neutral-white);
+  padding: 1rem;
+}
+
+.feedback__summary{
+  color: var(--clr-neutral-light-lavender);
+  text-align: center;
+  width:250px;
+  font-size: 0.9125rem;
+  font-weight: 400;
+  padding-bottom: 1rem;
+}
+
+.summary{
+  display: grid;
+  gap: 1rem;
+  padding: 1.5rem;
+}
+
+.summary__text{
+  color: var(--clr-neutral-dark-grey-blue);
+  font-weight: 900px;
+}
+
+.summary__reaction{
+  display: inline-flex;
+  gap: 0.5rem;
+  justify-content: space-around;
+
+  background-color: var(--clr-more-light-red);
+  border-radius: 0.75rem;
+  padding: 0.5rem;
+
+}
+
+.reaction{
+  color: var(--clr-light-red);
+}
+
+.summary__reaction[data-icon="reaction-icon"]::before{
+    content: "";
+    background-image: url(./assets/images/icon-reaction.svg);
+    margin-top: 5px;
+    width: 20px;
+    height: 20px;
+}
+
+.reaction__marks{
+  padding-left: 5rem;
+}
+
+.reaction__marks-obtained{
+  color: var(--clr-neutral-dark-grey-blue);
+}
+
+.out-of-100{
+  color: var(--clr-neutral-light-grey-blue);
+}
+
+
+.summary__memory{
+  display: inline-flex;
+  gap: 0.5rem;
+  justify-content: space-around;
+
+  background-color: var(--clr-light-oragey-yellow);
+  border-radius: 0.75rem;
+  padding: 0.5rem;
+
+}
+
+.memory{
+  color: var(--clr-oragey-yellow);
+}
+
+.summary__memory[data-icon="memory-icon"]::before{
+  content: "";
+  background-image: url(./assets/images/icon-memory.svg);
+  margin-top: 5px;
+  width: 20px;
+  height: 20px;
+}
+
+.memory__marks{
+  padding-left: 5rem;
+}
+
+.memory__marks-obtained{
+  color: var(--clr-neutral-dark-grey-blue);
+}
+
+
+
+
+.summary__verbal{
+  display: inline-flex;
+  gap: 0.5rem;
+  justify-content: space-around;
+
+  background-color: var(--clr-light-green-teal);
+  border-radius: 0.75rem;
+  padding: 0.5rem;
+
+}
+
+.verbal{
+  color: var(--clr-green-teal);
+}
+
+.summary__verbal[data-icon="verbal-icon"]::before{
+  content: "";
+  background-image: url(./assets/images/icon-verbal.svg);
+  margin-top: 5px;
+  width: 20px;
+  height: 20px;
+}
+
+.verbal__marks{
+  padding-left: 6rem;
+}
+
+.verbal__marks-obtained{
+  color: var(--clr-neutral-dark-grey-blue);
+}
+
+
+
+
+.summary__visual{
+  display: inline-flex;
+  gap: 0.5rem;
+  justify-content: space-around;
+
+  background-color: var(--clr-light-cobalt-blue);
+  border-radius: 0.75rem;
+  padding: 0.5rem;
+
+}
+
+.visual{
+  color: var(--clr-cobalt-blue);
+}
+
+.summary__visual[data-icon="visual-icon"]::before{
+  content: "";
+  background-image: url(./assets/images/icon-visual.svg);
+  margin-top: 5px;
+  width: 20px;
+  height: 20px;
+}
+
+.visual__marks{
+  padding-left: 5rem;
+}
+
+.visual__marks-obtained{
+  color: var(--clr-neutral-dark-grey-blue);
+}
+
+
+
+.button{
+  cursor: pointer;
+  text-decoration: none;
+  display: inline-flex;
+  gap: 0.75rem;
+  justify-content: center;
+  align-items: center;
+
+  border: 0;
+  border-radius: 1.5rem;
+  padding: 0.75rem 1.5rem;
+  background-color: var(--clr-neutral-dark-grey-blue);
+  color: var(--clr-neutral-white);
+}
+
